@@ -25,7 +25,7 @@ CreateThread(function()
         options = {
                 {
                   type = "client",
-                  event = "erp-forgery:client:enter",
+                  event = "ss-forgery:client:enter",
                   icon = "fa fa-circle",
                   label = "Enter",
                 },
@@ -41,7 +41,7 @@ CreateThread(function()
             options = {
                     {
                     type = "client",
-                    event = "erp-forgery:client:leave",
+                    event = "ss-forgery:client:leave",
                     icon = "fa fa-circle",
                     label = "Leave",
                     },
@@ -57,7 +57,7 @@ CreateThread(function()
             options = {
                     {
                     type = "client",
-                    event = "erp-forgery:client:ForgeIDMenu",
+                    event = "ss-forgery:client:ForgeIDMenu",
                     icon = "fa fa-circle",
                     label = "Forge ID Menu",
                     },
@@ -66,7 +66,7 @@ CreateThread(function()
         })
 end)
 
-RegisterNetEvent('erp-forgery:client:ForgeIDMenu', function() 
+RegisterNetEvent('ss-forgery:client:ForgeIDMenu', function() 
     exports['qb-menu']:openMenu({
         {
             header = "Forge ID",
@@ -76,35 +76,35 @@ RegisterNetEvent('erp-forgery:client:ForgeIDMenu', function()
             header = "Forge ID",
             txt = ' $50000 to manufacture forged identity',
             params = {
-                event = "erp-forgery:client:ForgeID",
+                event = "ss-forgery:client:ForgeIDCard",
             }
         },
         {
             header = "Forge Drivers Licence",
             txt = ' $50000 to manufacture forged identity',
             params = {
-                event = "erp-forgery:client:ForgeDrivers",
+                event = "ss-forgery:client:ForgeDrivers",
             }
         },
         {
             header = "Forge Weapons Licence",
             txt = ' $50000 to manufacture forged identity',
             params = {
-                event = "erp-forgery:client:ForgeWeapon",
+                event = "ss-forgery:client:ForgeWeapon",
             }
         },
         {
             header = "Forge Lawyerpass",
             txt = ' $50000 to manufacture forged identity',
             params = {
-                event = "erp-forgery:client:ForgeLawyerpass",
+                event = "ss-forgery:client:ForgeLawyerpass",
             }
         },
     })
 
 end)
 
-RegisterNetEvent('erp-forgery:client:enter', function(source)
+RegisterNetEvent('ss-forgery:client:enter', function(source)
     local Ped = PlayerPedId()
     local PlayerCoords = GetEntityCoords(Ped)
     if not IsPedInAnyVehicle(Ped, false) then
@@ -117,7 +117,7 @@ RegisterNetEvent('erp-forgery:client:enter', function(source)
     end
 end)
 
-RegisterNetEvent('erp-forgery:client:leave', function(source)
+RegisterNetEvent('ss-forgery:client:leave', function(source)
     local Ped = PlayerPedId()
     local PlayerCoords = GetEntityCoords(Ped)
     if not IsPedInAnyVehicle(Ped, false) then
@@ -131,7 +131,7 @@ RegisterNetEvent('erp-forgery:client:leave', function(source)
     end
 end)
 
-RegisterNetEvent('erp-forgery:client:ForgeID', function(source)
+RegisterNetEvent('ss-forgery:client:ForgeIDCard', function(source)
     local dialog = exports['qb-input']:ShowInput({
         header = "Forge an ID",
         info = "",
@@ -177,28 +177,26 @@ RegisterNetEvent('erp-forgery:client:ForgeID', function(source)
             local lastname = (dialog['lastname'])
             local birthday = (dialog['birthday'])
             local nationality = (dialog['nationality']) 
-            
-            QBCore.Functions.Progressbar("forge_docs", "Forging ID...", (ss.CraftingTime*1000), false, false, {
+
+            QBCore.Functions.Progressbar('name', 'Text that shows in bar', 5000, false, true, { -- Name | Label | Time | useWhileDead | canCancel
                 disableMovement = true,
                 disableCarMovement = true,
                 disableMouse = false,
                 disableCombat = true,
-            }, 
-            {
-                animDict = "anim@amb@clubhouse@tutorial@bkr_tut_ig3@",
-                anim = "machinic_loop_mechandplayer",
-                flags = 49,
-            }, {}, function()
-                
-            end, function()
-                TriggerServerEvent("erp-forgery:server:ForgeID",citizenid, firstname, lastname, birthday, nationality)
+            }, {
+                animDict = 'anim@gangops@facility@servers@',
+                anim = 'hotwire',
+                flags = 16,
+            }, {}, {}, function() -- Play When Done
+                TriggerServerEvent("ss-forgery:server:ForgeIDCard",citizenid, firstname, lastname, birthday, nationality)
+            end, function() -- Play When Cancel
+                --Stuff goes here
             end)
-        
         end
     end
 end, false)
 
-RegisterNetEvent('erp-forgery:client:ForgeDrivers', function(source)
+RegisterNetEvent('ss-forgery:client:ForgeDrivers', function(source)
     local dialog = exports['qb-input']:ShowInput({
         header = "Forge a Drivers License",
         info = "",
@@ -251,13 +249,13 @@ RegisterNetEvent('erp-forgery:client:ForgeDrivers', function(source)
             }, {}, function()
                 
             end, function()
-                TriggerServerEvent("erp-forgery:server:ForgeDrivers", firstname, lastname, birthday)
+                TriggerServerEvent("ss-forgery:server:ForgeDrivers", firstname, lastname, birthday)
             end)
         end
     end
 end, false)
 
-RegisterNetEvent('erp-forgery:client:ForgeWeapon', function(source)
+RegisterNetEvent('ss-forgery:client:ForgeWeapon', function(source)
     local dialog = exports['qb-input']:ShowInput({
         header = "Forge a Weapons License",
         submitText = "Forge License",
@@ -304,13 +302,13 @@ RegisterNetEvent('erp-forgery:client:ForgeWeapon', function(source)
             }, {}, function()
                 
             end, function()
-                TriggerServerEvent("erp-forgery:server:ForgeWeapon", firstname, lastname, birthday)
+                TriggerServerEvent("ss-forgery:server:ForgeWeapon", firstname, lastname, birthday)
             end)
         end
     end
 end, false)
 
-RegisterNetEvent('erp-forgery:client:ForgeLawyerpass', function(source)
+RegisterNetEvent('ss-forgery:client:ForgeLawyerpass', function(source)
     local dialog = exports['qb-input']:ShowInput({
         header = "Forge a Lawyerpass",
         submitText = "Forge License",
@@ -357,7 +355,7 @@ RegisterNetEvent('erp-forgery:client:ForgeLawyerpass', function(source)
             }, {}, function()
                 
             end, function()
-                TriggerServerEvent("erp-forgery:server:ForgeLawyerpass", passid, firstname, lastname, citizenid)
+                TriggerServerEvent("ss-forgery:server:ForgeLawyerpass", passid, firstname, lastname, citizenid)
             end)
         end
     end
