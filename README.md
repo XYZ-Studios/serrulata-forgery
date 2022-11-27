@@ -3,10 +3,8 @@
 # Different Frameworks
 
 * Download the framework you need!
-* [QBcore](https://github.com/qbcore-framework)
 * [Serrulata-Forgery-QB](https://github.com/Serrulata-Studios/serrulata-forgery/tree/qb)
 
-* [OXCore](https://github.com/Qbox-project)
 * [Serrulata-Forgery-OX](https://github.com/Serrulata-Studios/serrulata-forgery/tree/qb)
 
 
