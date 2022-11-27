@@ -178,7 +178,7 @@ RegisterNetEvent('ss-forgery:client:ForgeIDCard', function(source)
             local birthday = (dialog['birthday'])
             local nationality = (dialog['nationality']) 
 
-            QBCore.Functions.Progressbar('name', 'Text that shows in bar', 5000, false, true, { -- Name | Label | Time | useWhileDead | canCancel
+            QBCore.Functions.Progressbar('forge_docs', 'Forging License...', 5000, false, true, { -- Name | Label | Time | useWhileDead | canCancel
                 disableMovement = true,
                 disableCarMovement = true,
                 disableMouse = false,
@@ -236,21 +236,20 @@ RegisterNetEvent('ss-forgery:client:ForgeDrivers', function(source)
             local lastname = (dialog['lastname'])
             local birthday = (dialog['birthday'])
             
-            QBCore.Functions.Progressbar("forge_docs", "Forging License...", (ss.CraftingTime*1000), false, false, {
-                disableMovement = true,
-                disableCarMovement = true,
-                disableMouse = false,
-                disableCombat = true,
-            }, 
-            {
-                animDict = "anim@amb@clubhouse@tutorial@bkr_tut_ig3@",
-                anim = "machinic_loop_mechandplayer",
-                flags = 49,
-            }, {}, function()
-                
-            end, function()
-                TriggerServerEvent("ss-forgery:server:ForgeDrivers", firstname, lastname, birthday)
-            end)
+        QBCore.Functions.Progressbar('forge_docs', 'Forging License...', 5000, false, true, { -- Name | Label | Time | useWhileDead | canCancel
+            disableMovement = true,
+            disableCarMovement = true,
+            disableMouse = false,
+            disableCombat = true,
+        }, {
+            animDict = 'anim@gangops@facility@servers@',
+            anim = 'hotwire',
+            flags = 16,
+        }, {}, {}, function() -- Play When Done
+            TriggerServerEvent("ss-forgery:server:ForgeDrivers", firstname, lastname, birthday)
+        end, function() -- Play When Cancel
+            --Stuff goes here
+        end)
         end
     end
 end, false)
@@ -289,21 +288,21 @@ RegisterNetEvent('ss-forgery:client:ForgeWeapon', function(source)
             local lastname = (dialog['lastname'])
             local birthday = (dialog['birthday'])
             
-            QBCore.Functions.Progressbar("forge_docs", "Forging License...", (ss.CraftingTime*1000), false, false, {
-                disableMovement = true,
-                disableCarMovement = true,
-                disableMouse = false,
-                disableCombat = true,
-            }, 
-            {
-                animDict = "anim@amb@clubhouse@tutorial@bkr_tut_ig3@",
-                anim = "machinic_loop_mechandplayer",
-                flags = 49,
-            }, {}, function()
-                
-            end, function()
-                TriggerServerEvent("ss-forgery:server:ForgeWeapon", firstname, lastname, birthday)
-            end)
+
+        QBCore.Functions.Progressbar('forge_docs', 'Forging License...', 5000, false, true, { -- Name | Label | Time | useWhileDead | canCancel
+            disableMovement = true,
+            disableCarMovement = true,
+            disableMouse = false,
+            disableCombat = true,
+        }, {
+            animDict = 'anim@gangops@facility@servers@',
+            anim = 'hotwire',
+            flags = 16,
+        }, {}, {}, function() -- Play When Done
+            TriggerServerEvent("ss-forgery:server:ForgeWeapon", firstname, lastname, birthday)
+        end, function() -- Play When Cancel
+            --Stuff goes here
+        end)
         end
     end
 end, false)
@@ -341,22 +340,21 @@ RegisterNetEvent('ss-forgery:client:ForgeLawyerpass', function(source)
             local firstname = (dialog['firstname'])
             local lastname = (dialog['lastname'])
             local citizenid = (dialog['citizenid'])
-            
-            QBCore.Functions.Progressbar("forge_docs", "Forging License...", (ss.CraftingTime*1000), false, false, {
-                disableMovement = true,
-                disableCarMovement = true,
-                disableMouse = false,
-                disableCombat = true,
-            }, 
-            {
-                animDict = "anim@amb@clubhouse@tutorial@bkr_tut_ig3@",
-                anim = "machinic_loop_mechandplayer",
-                flags = 49,
-            }, {}, function()
-                
-            end, function()
-                TriggerServerEvent("ss-forgery:server:ForgeLawyerpass", passid, firstname, lastname, citizenid)
-            end)
+        
+        QBCore.Functions.Progressbar('forge_docs', 'Forging License...', 5000, false, true, { -- Name | Label | Time | useWhileDead | canCancel
+            disableMovement = true,
+            disableCarMovement = true,
+            disableMouse = false,
+            disableCombat = true,
+        }, {
+            animDict = 'anim@gangops@facility@servers@',
+            anim = 'hotwire',
+            flags = 16,
+        }, {}, {}, function() -- Play When Done
+            TriggerServerEvent("ss-forgery:server:ForgeLawyerpass", passid, firstname, lastname, citizenid)
+        end, function() -- Play When Cancel
+            --Stuff goes here
+        end)
         end
     end
 end, false)
