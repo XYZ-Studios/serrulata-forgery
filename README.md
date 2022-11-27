@@ -14,9 +14,8 @@ ensure serrulata-forgery
 
 
 # Dependencies
-* [qb-target](https://github.com/qbcore-framework/qb-target)
-* [qb-menu](https://github.com/qbcore-framework/qb-menu)
-* [qb-input](https://github.com/qbcore-framework/qb-input)
+* [ox_lib](https://github.com/overextended/ox_lib)
+* [ox_target](https://github.com/overextended/ox_target)
 
 # Preview 
 [Serrulata-Forgery](https://streamable.com/xv65b6) 
