@@ -25,7 +25,7 @@ CreateThread(function()
         options = {
                 {
                   type = "client",
-                  event = "ss-forgery:client:enter",
+                  event = "serrulata-forgery:client:enter",
                   icon = "fa fa-circle",
                   label = "Enter",
                 },
@@ -41,7 +41,7 @@ CreateThread(function()
             options = {
                     {
                     type = "client",
-                    event = "ss-forgery:client:leave",
+                    event = "serrulata-forgery:client:leave",
                     icon = "fa fa-circle",
                     label = "Leave",
                     },
@@ -57,7 +57,7 @@ CreateThread(function()
             options = {
                     {
                     type = "client",
-                    event = "ss-forgery:client:ForgeIDMenu",
+                    event = "serrulata-forgery:client:ForgeIDMenu",
                     icon = "fa fa-circle",
                     label = "Forge ID Menu",
                     },
@@ -66,7 +66,7 @@ CreateThread(function()
         })
 end)
 
-RegisterNetEvent('ss-forgery:client:ForgeIDMenu', function() 
+RegisterNetEvent('serrulata-forgery:client:ForgeIDMenu', function() 
     exports['qb-menu']:openMenu({
         {
             header = "Forge ID",
@@ -76,35 +76,35 @@ RegisterNetEvent('ss-forgery:client:ForgeIDMenu', function()
             header = "Forge ID",
             txt = ' $50000 to manufacture forged identity',
             params = {
-                event = "ss-forgery:client:ForgeIDCard",
+                event = "serrulata-forgery:client:ForgeIDCard",
             }
         },
         {
             header = "Forge Drivers Licence",
             txt = ' $50000 to manufacture forged identity',
             params = {
-                event = "ss-forgery:client:ForgeDrivers",
+                event = "serrulata-forgery:client:ForgeDrivers",
             }
         },
         {
             header = "Forge Weapons Licence",
             txt = ' $50000 to manufacture forged identity',
             params = {
-                event = "ss-forgery:client:ForgeWeapon",
+                event = "serrulata-forgery:client:ForgeWeapon",
             }
         },
         {
             header = "Forge Lawyerpass",
             txt = ' $50000 to manufacture forged identity',
             params = {
-                event = "ss-forgery:client:ForgeLawyerpass",
+                event = "serrulata-forgery:client:ForgeLawyerpass",
             }
         },
     })
 
 end)
 
-RegisterNetEvent('ss-forgery:client:enter', function(source)
+RegisterNetEvent('serrulata-forgery:client:enter', function(source)
     local Ped = PlayerPedId()
     local PlayerCoords = GetEntityCoords(Ped)
     if not IsPedInAnyVehicle(Ped, false) then
@@ -117,7 +117,7 @@ RegisterNetEvent('ss-forgery:client:enter', function(source)
     end
 end)
 
-RegisterNetEvent('ss-forgery:client:leave', function(source)
+RegisterNetEvent('serrulata-forgery:client:leave', function(source)
     local Ped = PlayerPedId()
     local PlayerCoords = GetEntityCoords(Ped)
     if not IsPedInAnyVehicle(Ped, false) then
@@ -131,7 +131,7 @@ RegisterNetEvent('ss-forgery:client:leave', function(source)
     end
 end)
 
-RegisterNetEvent('ss-forgery:client:ForgeIDCard', function(source)
+RegisterNetEvent('serrulata-forgery:client:ForgeIDCard', function(source)
     local dialog = exports['qb-input']:ShowInput({
         header = "Forge an ID",
         info = "",
@@ -188,7 +188,7 @@ RegisterNetEvent('ss-forgery:client:ForgeIDCard', function(source)
                 anim = 'hotwire',
                 flags = 16,
             }, {}, {}, function() -- Play When Done
-                TriggerServerEvent("ss-forgery:server:ForgeIDCard",citizenid, firstname, lastname, birthday, nationality)
+                TriggerServerEvent("serrulata-forgery:server:ForgeIDCard",citizenid, firstname, lastname, birthday, nationality)
             end, function() -- Play When Cancel
                 --Stuff goes here
             end)
@@ -196,7 +196,7 @@ RegisterNetEvent('ss-forgery:client:ForgeIDCard', function(source)
     end
 end, false)
 
-RegisterNetEvent('ss-forgery:client:ForgeDrivers', function(source)
+RegisterNetEvent('serrulata-forgery:client:ForgeDrivers', function(source)
     local dialog = exports['qb-input']:ShowInput({
         header = "Forge a Drivers License",
         info = "",
@@ -246,7 +246,7 @@ RegisterNetEvent('ss-forgery:client:ForgeDrivers', function(source)
             anim = 'hotwire',
             flags = 16,
         }, {}, {}, function() -- Play When Done
-            TriggerServerEvent("ss-forgery:server:ForgeDrivers", firstname, lastname, birthday)
+            TriggerServerEvent("serrulata-forgery:server:ForgeDrivers", firstname, lastname, birthday)
         end, function() -- Play When Cancel
             --Stuff goes here
         end)
@@ -254,7 +254,7 @@ RegisterNetEvent('ss-forgery:client:ForgeDrivers', function(source)
     end
 end, false)
 
-RegisterNetEvent('ss-forgery:client:ForgeWeapon', function(source)
+RegisterNetEvent('serrulata-forgery:client:ForgeWeapon', function(source)
     local dialog = exports['qb-input']:ShowInput({
         header = "Forge a Weapons License",
         submitText = "Forge License",
@@ -299,7 +299,7 @@ RegisterNetEvent('ss-forgery:client:ForgeWeapon', function(source)
             anim = 'hotwire',
             flags = 16,
         }, {}, {}, function() -- Play When Done
-            TriggerServerEvent("ss-forgery:server:ForgeWeapon", firstname, lastname, birthday)
+            TriggerServerEvent("serrulata-forgery:server:ForgeWeapon", firstname, lastname, birthday)
         end, function() -- Play When Cancel
             --Stuff goes here
         end)
@@ -307,7 +307,7 @@ RegisterNetEvent('ss-forgery:client:ForgeWeapon', function(source)
     end
 end, false)
 
-RegisterNetEvent('ss-forgery:client:ForgeLawyerpass', function(source)
+RegisterNetEvent('serrulata-forgery:client:ForgeLawyerpass', function(source)
     local dialog = exports['qb-input']:ShowInput({
         header = "Forge a Lawyerpass",
         submitText = "Forge License",
@@ -351,7 +351,7 @@ RegisterNetEvent('ss-forgery:client:ForgeLawyerpass', function(source)
             anim = 'hotwire',
             flags = 16,
         }, {}, {}, function() -- Play When Done
-            TriggerServerEvent("ss-forgery:server:ForgeLawyerpass", passid, firstname, lastname, citizenid)
+            TriggerServerEvent("serrulata-forgery:server:ForgeLawyerpass", passid, firstname, lastname, citizenid)
         end, function() -- Play When Cancel
             --Stuff goes here
         end)
