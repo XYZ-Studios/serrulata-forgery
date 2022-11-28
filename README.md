@@ -18,7 +18,7 @@ ensure serrulata-forgery
 ```
 
 # Config
-![Serrulata](https://i.imgur.com/KGInzLO.png)
+![Serrulata](https://i.imgur.com/qqgWKVL.png)
 
 
 # Dependencies (QBCore)
