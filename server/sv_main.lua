@@ -35,6 +35,7 @@ RegisterServerEvent("serrulata-forgery:server:ForgeDrivers", function(firstname,
         Player.Functions.AddItem(Config.DriversItem, 1, nil, info)
 
         Player.Functions.RemoveMoney("cash", Config.ForgeDriversPrice)
+        
     else
         TriggerClientEvent('QBCore:Notify', src, 'You dont have enough money.', 'error')
     end
@@ -52,7 +53,14 @@ RegisterServerEvent("serrulata-forgery:server:ForgeWeapon", function(firstname,l
         TriggerClientEvent('inventory:client:ItemBox', src, QBCore.Shared.Items[Config.WeaponsItem], 'add')
         Player.Functions.AddItem(Config.WeaponsItem, 1, nil, info)
 
+        
+        local licenseTable = Player.PlayerData.metadata["licences"]
+
+        licenseTable["weapon"] = true
+        Player.Functions.SetMetaData("licences", licenseTable)
+
         Player.Functions.RemoveMoney("cash", Config.ForgeWeaponsPrice)
+
     else
         TriggerClientEvent('QBCore:Notify', src, 'You dont have enough money.', 'error')
     end
@@ -76,3 +84,4 @@ RegisterServerEvent("serrulata-forgery:server:ForgeLawyerpass", function(passid,
         TriggerClientEvent('QBCore:Notify', src, 'You dont have enough money.', 'error')
     end
 end)
+
