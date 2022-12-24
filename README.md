@@ -5,7 +5,7 @@
 * Download the framework you need!
 * [Serrulata-Forgery-QB](https://github.com/Serrulata-Studios/serrulata-forgery/tree/qb)
 
-* [Serrulata-Forgery-OX](https://github.com/Serrulata-Studios/serrulata-forgery/tree/qb)
+* [Serrulata-Forgery-OX](https://github.com/Serrulata-Studios/serrulata-forgery/tree/ox)
 
 
 # Installation
